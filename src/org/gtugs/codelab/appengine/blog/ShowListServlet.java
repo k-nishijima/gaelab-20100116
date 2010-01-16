@@ -57,6 +57,7 @@ public class ShowListServlet extends HttpServlet {
 
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		Query query = pm.newQuery(Post.class);
+		query.setOrdering("date desc");
 		List<Post> list = null;
 		if (tagParam != null) {
 			query.setFilter("tags == :tag");

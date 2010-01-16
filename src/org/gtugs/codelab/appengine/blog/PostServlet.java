@@ -1,9 +1,8 @@
 package org.gtugs.codelab.appengine.blog;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
 import javax.jdo.PersistenceManager;
 import javax.servlet.ServletException;
@@ -50,11 +49,7 @@ public class PostServlet extends HttpServlet {
 
 		if (tag != null) {
 			String[] tagValues = tag.split(",");
-			List<String> tags = new ArrayList<String>();
-			for (String tmp : tagValues) {
-				tags.add(tmp);
-			}
-			post.setTags(tags);
+			post.setTags(Arrays.asList(tagValues));
 		}
 		try {
 			// ここで永続化
